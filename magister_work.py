@@ -210,20 +210,10 @@ run_text_augmentation_test(X_train, y_train, X_test_original_1, y_test, 2, eda.r
 run_text_augmentation_test(X_train, y_train, X_test_original_1, y_test, 2, eda.random_insertion, 2, 'random insertion')
 
 """# Image augmentation"""
-
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-import seaborn as sns
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D , MaxPool2D , Flatten , Dropout , BatchNormalization
-from keras.preprocessing.image import ImageDataGenerator
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report,confusion_matrix
 from keras.callbacks import ReduceLROnPlateau
 import cv2
-import os
-import random
 
 labels = ['PNEUMONIA', 'NORMAL']
 img_size = 150
@@ -423,11 +413,6 @@ model_brightness, history_brightness = run_test(x_train, y_train, x_val, y_val,
 get_predictions_audio(model_brightness, x_test, y_test)
 
 """# Audio augmentation"""
-import os
-import numpy as np
-import librosa
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout
 from sklearn.preprocessing import LabelEncoder
 
 def extract_features(audio, sample_rate):
