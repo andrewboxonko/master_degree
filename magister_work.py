@@ -7,25 +7,17 @@ import os
 import nltk
 import random
 import pandas as pd
-import shutil
 import numpy as np
 import librosa
 import seaborn as sns
 import matplotlib.pyplot as plt
-
-from PIL import Image
 from nltk.corpus import stopwords
 from textaugment import EDA
-from sklearn.svm import SVC
-from sklearn.feature_extraction.text import CountVectorizer
-from nltk.tokenize import word_tokenize
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split, ParameterGrid
-from sklearn.metrics import accuracy_score, f1_score, classification_report
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.svm import LinearSVC
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.utils import shuffle
 from collections import Counter
@@ -223,7 +215,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import keras
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D , MaxPool2D , Flatten , Dropout , BatchNormalization
 from keras.preprocessing.image import ImageDataGenerator
@@ -432,20 +423,12 @@ model_brightness, history_brightness = run_test(x_train, y_train, x_val, y_val,
 get_predictions_audio(model_brightness, x_test, y_test)
 
 """# Audio augmentation"""
-
-# !kaggle datasets download -d warcoder/cats-vs-dogs-vs-birds-audio-classification
-#
-# !unzip cats-vs-dogs-vs-birds-audio-classification.zip
-
-import IPython.display as ipd
 import os
 import numpy as np
 import librosa
-import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 from sklearn.preprocessing import LabelEncoder
-from tensorflow.keras.utils import to_categorical
 
 def extract_features(audio, sample_rate):
     try:
